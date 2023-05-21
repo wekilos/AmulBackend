@@ -104,6 +104,9 @@ router.delete("/width/destroy/:id", WidthControllers.Destroy);
 router.get("/subscribe/all", cache.get, SubscribeControllers.getAll, cache.set);
 router.get("/subscribe/:id", cache.get, SubscribeControllers.getOne, cache.set);
 router.post("/subscribe/create", SubscribeControllers.create);
+router.post("/subscribe/send/one", SubscribeControllers.sendOnePerson);
+router.post("/subscribe/send/all", SubscribeControllers.sendAllPerson);
+router.post("/contact/send", SubscribeControllers.sendAllPerson);
 router.patch("/subscribe/update", SubscribeControllers.update);
 router.delete("/subscribe/destroy/:id", SubscribeControllers.Destroy);
 

@@ -2,6 +2,7 @@ var Sequelize = require("sequelize");
 const { Subscribe } = require("../../models");
 const Op = Sequelize.Op;
 const fs = require("fs");
+const SendMail = require("../functions/mailSend");
 
 const getAll = async (req, res) => {
   Subscribe.findAll({
@@ -79,6 +80,39 @@ const update = async (req, res) => {
   }
 };
 
+const sendOnePerson = async (req, res) => {
+  const { subject, text, email } = req.body;
+  await SendMail.SendMail({ subject: subject, text: text, email: email });
+  res.json("ugradyldy!");
+};
+
+const sendAllPerson = async (req, res) => {
+  const { subject, text } = req.body;
+  let data = await Subscribe.findAll();
+
+  data.map(async (item) => {
+    await SendMail.SendMail({
+      subject: subject,
+      text: text,
+      email: item.email,
+    });
+  });
+  res.json("ugradyldy!");
+};
+
+const recivedOnePersonMail = async (req, res) => {
+  const { fullname, phone, text, email } = req.body;
+
+  await SendMail.ReciveMail({
+    subject: "From clients",
+    text: text,
+    email: email,
+    phone: phone,
+    fullname: fullname,
+  });
+  res.json("ugradyldy!");
+};
+
 const Destroy = async (req, res) => {
   const { id } = req.params;
   let data = await Subscribe.findOne({ where: { id: id } });
@@ -104,3 +138,6 @@ exports.getOne = getOne;
 exports.create = create;
 exports.update = update;
 exports.Destroy = Destroy;
+exports.sendOnePerson = sendOnePerson;
+exports.sendAllPerson = sendAllPerson;
+exports.recivedOnePersonMail = recivedOnePersonMail;
