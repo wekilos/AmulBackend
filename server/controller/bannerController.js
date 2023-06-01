@@ -39,7 +39,8 @@ const getOne = async (req, res) => {
 
 const create = async (req, res) => {
   let randomNumber = Math.floor(Math.random() * 999999999999);
-  let img_direction = `./uploads/` + randomNumber + `${req.files.img?.name}`;
+  let img_direction =
+    `./api/uploads/` + randomNumber + `${req.files.img?.name}`;
   fs.writeFile(img_direction, req.files.img.data, function (err) {
     console.log(err);
   });
@@ -64,7 +65,8 @@ const update = async (req, res) => {
     res.json("Bu Id boyuncha Config yok!");
   } else {
     let randomNumber = Math.floor(Math.random() * 999999999999);
-    let img_direction = `./uploads/` + randomNumber + `${req.files?.img.name}`;
+    let img_direction =
+      `./api/uploads/` + randomNumber + `${req.files?.img.name}`;
     fs.writeFile(img_direction, req.files.img.data, function (err) {
       console.log(err);
     });

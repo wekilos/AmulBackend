@@ -209,7 +209,7 @@ const uploadImg = async (req, res) => {
   let imgs = [];
   const upl = (img) => {
     let randomNumber = Math.floor(Math.random() * 999999999999);
-    let img_direction = `./uploads/` + randomNumber + `${img.name}`;
+    let img_direction = `./api/uploads/` + randomNumber + `${img.name}`;
     fs.writeFile(img_direction, img.data, function (err) {
       console.log(err);
     });
