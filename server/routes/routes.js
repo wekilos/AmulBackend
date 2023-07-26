@@ -107,6 +107,7 @@ router.post("/subscribe/create", SubscribeControllers.create);
 router.post("/subscribe/send/one", SubscribeControllers.sendOnePerson);
 router.post("/subscribe/send/all", SubscribeControllers.sendAllPerson);
 router.post("/contact/send", SubscribeControllers.sendAllPerson);
+router.post("/recive/mail", SubscribeControllers.recivedOnePersonMail);
 router.patch("/subscribe/update", SubscribeControllers.update);
 router.delete("/subscribe/destroy/:id", SubscribeControllers.Destroy);
 
