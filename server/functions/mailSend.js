@@ -3,15 +3,15 @@ var nodemailer = require("nodemailer");
 var transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "DemiryolExpress@gmail.com",
-    pass: "sibvyljvgbcvlujp",
+    user: "Tmtextile.org@gmail.com",
+    pass: "mgacwxjivhuuvzxt",
   },
 });
 
 const SendMail = async (data) => {
   console.log(data);
   var mailOptions = {
-    from: "DemiryolExpress@gmail.com",
+    from: "Tmtextile.org@gmail.com",
     to: data?.email,
     subject: data?.subject,
     text: data?.text,
@@ -31,8 +31,8 @@ const SendMail = async (data) => {
 const ReciveMail = async (data) => {
   console.log(data);
   var mailOptions = {
-    from: "DemiryolExpress@gmail.com",
-    to: "DemiryolExpress@gmail.com",
+    from: "Tmtextile.org@gmail.com",
+    to: "texstile-opt@mail.ru",
     subject: data?.subject,
     text:
       "From this mail:" +
