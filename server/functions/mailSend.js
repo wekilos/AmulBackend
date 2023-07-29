@@ -1,9 +1,9 @@
 var nodemailer = require("nodemailer");
 
 var transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  host: "smtp.example.com",
+  port: 587,
+  secure: false, // upgrade later with STARTTLS
   service: "gmail",
   auth: {
     user: "Tmtextile.org@gmail.com",
