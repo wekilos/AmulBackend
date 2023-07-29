@@ -32,8 +32,8 @@ const ReciveMail = async (data) => {
   console.log(data);
   var mailOptions = {
     from: "Tmtextile.org@gmail.com",
-    // to: "Tmtextile.org@gmail.com",
-    to: "Texstile-opt@mail.ru",
+    to: "Tmtextile.org@gmail.com",
+    // to: "texstile-opt@mail.ru",
     subject: data?.subject,
     text:
       "From this mail: " +
@@ -45,7 +45,6 @@ const ReciveMail = async (data) => {
       "Full name: " +
       data?.fullname +
       "\n" +
-      "Message: \n" +
       data?.text +
       "\n",
   };
